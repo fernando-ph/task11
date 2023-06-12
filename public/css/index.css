@@ -1,0 +1,33 @@
+.color-black {
+    color: black !important;
+}
+
+.color-black:hover {
+    color: pink !important;
+}
+
+.text-justify-cuy {
+    text-align: justify;
+}
+
+.line-spacing {
+    letter-spacing: 4px;
+}
+
+.lineHeight-judulDurasi {
+    line-height: 0;
+}
+
+.fontSize-durasi {
+    font-size: 13px;
+    color: #adadad;
+}
+
+.margintop-myproject {
+    margin-top: 100px;
+}
+
+.margin-padding-h1 {
+    padding-top: 100px;
+    margin-bottom: 100px;
+}

@@ -1,0 +1,27 @@
+/* awal style navigasi */
+
+.bg-orange {
+    background-color: orangered !important;
+}
+
+.bg-orange:hover {
+    background-color: red !important;
+}
+
+.color-white {
+    color: white !important;
+}
+
+.color-white:hover {
+    color: pink !important;
+}
+
+.active {
+    color: orangered !important;
+}
+
+.bg-silver {
+    background-color: silver;
+}
+
+/* akhir style navigasi */

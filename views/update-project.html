@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/add-project.css" />
+    <title>Add Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-silver">
+    <!-- awal navigasi -->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"
+          ><img src="/public/images/icon/logo-dumbways.png"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-4">
+            <li class="nav-item ms-2">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item ms-2">
+              <a class="nav-link" href="/add-project" aria-current="page"
+                >Add Project</a
+              >
+            </li>
+            <li class="nav-item ms-2">
+              <a class="nav-link" href="/my-testimonials">My Testimonials</a>
+            </li>
+          </ul>
+          <li class="nav-item nav d-flex justify-content-center">
+            <button class="btn bg-orange" type="button">
+              <a href="/contact" class="text-decoration-none color-white"
+                >Contact</a
+              >
+            </button>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <!-- akhir navigasi -->
+
+    <!-- awal form add project -->
+
+    <div class="container-sm mt-5 mb-5" style="width: 35rem;">
+      <h1 class="text-center mb-5">Add My Project</h1>
+      <form action="/update-project/{{.Project.Id}}" method="post">
+        <input type="hidden" name="id" value="">
+        <div class="mb-3">
+          <label class="form-label fs-4" for="inputProjectName"
+            >Project Name</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            id="inputProjectName"
+            name="inputProjectName"
+            value="{{.Project.Title}}"
+          />
+        </div>
+        <div class="d-flex mb-3">
+          <div class="me-5">
+            <label class="form-label fs-4" for="inputStarDate"
+              >Start Date</label
+            >
+            <input
+              class="form-control"
+              type="date"
+              id="inputStartDate"
+              name="inputStartDate"
+              style="width: 15.24rem;"
+              value="{{.Project.StartDate}}"
+            />
+          </div>
+          <div>
+            <label class="form-label fs-4" for="inputEndDate">End Date</label>
+            <input
+              class="form-control"
+              type="date"
+              id="inputEndDate"
+              name="inputEndDate"
+              style="width: 15.24rem;"
+              value="{{.Project.EndDate}}"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fs-4" for="inputDescription"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            id="inputDescription"
+            style="height: 150px; resize: none;"
+            name="inputDescription"
+          >{{.Project.Content}}</textarea>
+        </div>
+        <label class="mb-1 fs-4">Technologies</label>
+        <div>
+          <div class="form-check form-check-inline me-5 mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkNodejs"
+              name="NodeJs"
+              value="yes"
+              {{if .Project.NodeJS}} checked {{end}}
+            />
+            <label class="form-check-label">Node Js</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkNextjs"
+              name="NextJs"
+              value="yes"
+              {{if .Project.NextJS}} checked {{end}}
+            />
+            <label class="form-check-label">Next Js</label>
+          </div>
+        </div>
+        <div>
+          <div class="form-check form-check-inline me-5">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkReactjs"
+              name="ReactJs"
+              value="yes"
+              {{if .Project.ReactJS}} checked {{end}}
+            />
+            <label class="form-check-label">React Js</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkTypescript"
+              name="TypeScript"
+              value="yes"
+              {{if .Project.TypeScript}} checked {{end}}
+            />
+            <label class="form-check-label">Type Script</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="imageUploud" class="form-label fs-4 mt-2"
+            >Uploud Images</label
+          >
+          <input class="form-control" type="file" id="imageUploud" />
+        </div>
+        <div class="mt-3 text-end">
+          <button class="btn bg-orange color-white" type="submit">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- akhir form add project -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="public/js/testimonials.js"></script>
+  </body>
+</html>
